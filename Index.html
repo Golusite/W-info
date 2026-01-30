@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weltinfo - Global Knowledge Hub</title>
+    <meta name="description" content="Discover comprehensive world information, country statistics, travel guides, and global history.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Consistent Design */
+        :root {
+            --primary-color: #0f4c81; /* Classic Blue */
+            --secondary-color: #20c997; /* Teal for freshness */
+            --accent-color: #ffc107; /* Highlight */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Hero & SEO Search Section --- */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(32, 201, 151, 0.8)), url('https://picsum.photos/seed/worldmap/1600/900') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        /* The "Lamba" Search Box Design */
+        .search-container {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-wrap: wrap; /* Responsive wrap */
+            gap: 10px;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+            min-width: 250px;
+        }
+
+        .search-input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .search-input-wrapper input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-input-wrapper input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .search-select {
+            padding: 0 20px;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 8px;
+            font-family: inherit;
+            color: var(--text-dark);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search-btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background-color: #1aa179;
+        }
+
+        .search-tags {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .search-tags span {
+            color: var(--accent-color);
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .search-tags span:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Main Content Area --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* --- Categories Grid --- */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary-color);
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Articles/Info Grid --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-tag {
+            background: #e3f2fd;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+            gap: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #d1d1d1;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+            .search-container { flex-direction: column; }
+            .search-select { padding: 15px; text-align: left; }
+            .search-btn { width: 100%; padding: 15px; }
+        }
+
+        /* Utility for empty search result */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-earth-americas"></i> Weltinfo
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#explore">Explore</a>
+                <a href="#countries">Countries</a>
+                <a href="#blog">Blog</a>
+                <a href="#about">About</a>
+            </div>
+            <a href="#" class="cta-btn">Subscribe</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with "Lamba" SEO Search -->
+        <section class="hero">
+            <h1>Explore the World's Knowledge</h1>
+            <p>Access detailed data on geography, economics, history, and culture from every corner of the globe.</p>
+            
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Try searching: 'Best time to visit Japan' or 'GDP of Germany 2026'...">
+                </div>
+                <select class="search-select" id="categorySelect">
+                    <option value="all">All Categories</option>
+                    <option value="geography">Geography</option>
+                    <option value="economy">Economy</option>
+                    <option value="history">History</option>
+                    <option value="travel">Travel</option>
+                </select>
+                <button class="search-btn" onclick="filterContent()">Search</button>
+            </div>
+            
+            <div class="search-tags">
+                Trending: 
+                <span onclick="setSearch('Global Warming Effects')">Global Warming Effects</span> • 
+                <span onclick="setSearch('Top Economies 2026')">Top Economies 2026</span> • 
+                <span onclick="setSearch('Ancient Rome History')">Ancient Rome History</span> • 
+                <span onclick="setSearch('Visa Free Countries')">Visa Free Countries</span>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="container" id="explore">
+            <div class="section-title">
+                <h2>Browse by Category</h2>
+                <p>Find specific information tailored to your interests.</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" onclick="setCategoryFilter('geography')">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>Geography</h3>
+                    <p>Maps, climates, and physical features.</p>
+                </div>
+                <div class="category-card" onclick="setCategoryFilter('economy')">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Economy</h3>
+                    <p>GDP, trade, and market statistics.</p>
+                </div>
+                <div class="category-card" onclick="setCategoryFilter('history')">
+                    <i class="fa-solid fa-landmark"></i>
+                    <h3>History</h3>
+                    <p>Events, leaders, and cultural heritage.</p>
+                </div>
+                <div class="category-card" onclick="setCategoryFilter('travel')">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <h3>Travel</h3>
+                    <p>Guides, tips, and hidden gems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Content (Searchable Grid) -->
+        <section class="container" style="background-color: #f0f4f8; border-radius: 20px;" id="countries">
+            <div class="section-title">
+                <h2>Latest World Insights</h2>
+                <p>Dive deep into our curated articles and statistics.</p>
+            </div>
+            
+            <div class="info-grid" id="contentGrid">
+                
+                <!-- Card 1 -->
+                <article class="info-card" data-category="economy">
+                    <img src="https://picsum.photos/seed/finance/400/250" alt="Economy" class="card-img">
+                    <div class="card-content">
+                        <span class="card-tag">Economy</span>
+                        <h3>Global Market Trends 2026: A Complete Analysis</h3>
+                        <p>An in-depth look at the emerging markets, inflation rates, and economic shifts across major continents.</p>
+                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="info-card" data-category="travel">
+                    <img src="https://picsum.photos/seed/travel2/400/250" alt="Travel" class="card-img">
+                    <div class="card-content">
+                        <span class="card-tag">Travel</span>
+                        <h3>Top 10 Hidden Gems in Southeast Asia</h3>
+                        <p>Beyond the tourist traps, discover pristine beaches and ancient temples that offer tranquility.</p>
+                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="info-card" data-category="geography">
+                    <img src="https://picsum.photos/seed/nature/400/250" alt="Geography" class="card-img">
+                    <div class="card-content">
+                        <span class="card-tag">Geography</span>
+                        <h3>The Impact of Climate Change on Island Nations</h3>
+                        <p>How rising sea levels are reshaping the maps of the Maldives, Caribbean, and Pacific islands.</p>
+                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="info-card" data-category="history">
+                    <img src="https://picsum.photos/seed/rome/400/250" alt="History" class="card-img">
+                    <div class="card-content">
+                        <span class="card-tag">History</span>
+                        <h3>The Rise and Fall of the Roman Empire</h3>
+                        <p>A comprehensive timeline of political strategies, wars, and cultural evolution in ancient Rome.</p>
+                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="info-card" data-category="economy">
+                    <img src="https://picsum.photos/seed/tech/400/250" alt="Economy" class="card-img">
+                    <div class="card-content">
+                        <span class="card-tag">Economy</span>
+                        <h3>Cryptocurrency Regulations Around the World</h3>
+                        <p>A legal guide to how different governments are handling digital assets and blockchain technology.</p>
+                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                 <!-- Card 6 -->
+                 <article class="info-card" data-category="travel">
+                    <img src="https://picsum.photos/seed/snow/400/250" alt="Travel" class="card-img">
+                    <div class="card-content">
+                        <span class="card-tag">Travel</span>
+                        <h3>Winter Wonderland: Skiing in the Swiss Alps</h3>
+                        <p>Everything you need to know about resorts, pricing, and the best slopes for beginners.</p>
+                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <div class="no-results" id="noResults">
+                    <i class="fa-regular fa-face-frown-open" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                    <p>No results found for your search. Try a different keyword.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px; color: var(--white);">
+                    <i class="fa-solid fa-earth-americas"></i> Weltinfo
+                </div>
+                <p>Your trusted source for global information. Making the world accessible, one search at a time.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Geography</a></li>
+                    <li><a href="#">Economy</a></li>
+                    <li><a href="#">Culture</a></li>
+                    <li><a href="#">Travel Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Weltinfo. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        // Function to filter content based on search and category
+        function filterContent() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categorySelect').value.toLowerCase();
+            const grid = document.getElementById('contentGrid');
+            const cards = grid.getElementsByClassName('info-card');
+            const noResults = document.getElementById('noResults');
+            let hasResults = false;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const text = card.querySelector('p').innerText.toLowerCase();
+                const cardCategory = card.getAttribute('data-category').toLowerCase();
+
+                // Check if card matches text search AND category selection
+                const matchesText = title.includes(input) || text.includes(input);
+                const matchesCategory = category === 'all' || cardCategory === category;
+
+                if (matchesText && matchesCategory) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+
+            // Show/Hide "No Results" message
+            if (!hasResults) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Helper: Set search input from trending tags and trigger search
+        function setSearch(term) {
+            const input = document.getElementById('searchInput');
+            input.value = term;
+            filterContent();
+            
+            // Scroll to results
+            document.getElementById('countries').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Helper: Set category filter from category cards
+        function setCategoryFilter(cat) {
+            const select = document.getElementById('categorySelect');
+            select.value = cat;
+            filterContent();
+            
+            // Scroll to results
+            document.getElementById('countries').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Add "Enter" key listener for search box
+        document.getElementById('searchInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                filterContent();
+                document.getElementById('countries').scrollIntoView({behavior: 'smooth'});
+            }
+        });
+
+        // Trigger filter when category dropdown changes
+        document.getElementById('categorySelect').addEventListener('change', filterContent);
+
+    </script>
+</body>
+</html>
