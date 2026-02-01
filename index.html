@@ -6,6 +6,9 @@
     <title>Weltinfo - Global Knowledge Hub</title>
     <meta name="description" content="Discover comprehensive world information, country statistics, travel guides, and global history.">
     
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/10812/10812210.png" type="image/png">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -13,11 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS Variables for Consistent Design */
+        /* CSS Variables */
         :root {
-            --primary-color: #0f4c81; /* Classic Blue */
-            --secondary-color: #20c997; /* Teal for freshness */
-            --accent-color: #ffc107; /* Highlight */
+            --primary-color: #0f4c81;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
             --text-dark: #333333;
             --text-light: #666666;
             --bg-light: #f8f9fa;
@@ -26,11 +29,7 @@
             --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -39,16 +38,10 @@
             background-color: var(--bg-light);
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-        ul {
-            list-style: none;
-        }
-
-        /* --- Header & Navigation --- */
+        /* --- Header --- */
         header {
             background: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -68,28 +61,20 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+        .logo-img { width: 45px; height: 45px; object-fit: contain; }
 
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-dark);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); transition: var(--transition); }
+        .nav-links a:hover { color: var(--secondary-color); }
 
         .cta-btn {
             background-color: var(--primary-color);
@@ -100,12 +85,7 @@
             transition: var(--transition);
         }
 
-        .cta-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* --- Hero & SEO Search Section --- */
+        /* --- Hero Section --- */
         .hero {
             margin-top: 80px;
             background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(32, 201, 151, 0.8)), url('https://picsum.photos/seed/worldmap/1600/900') no-repeat center center/cover;
@@ -117,23 +97,12 @@
             text-align: center;
             padding: 20px;
             color: var(--white);
+            position: relative;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        /* The "Lamba" Search Box Design */
         .search-container {
             background: var(--white);
             padding: 10px;
@@ -142,8 +111,9 @@
             max-width: 800px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: flex;
-            flex-wrap: wrap; /* Responsive wrap */
+            flex-wrap: wrap;
             gap: 10px;
+            position: relative;
         }
 
         .search-input-wrapper {
@@ -153,272 +123,208 @@
         }
 
         .search-input-wrapper i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-light); z-index: 2;
         }
 
         .search-input-wrapper input {
-            width: 100%;
-            padding: 15px 15px 15px 45px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .search-input-wrapper input:focus {
-            border-color: var(--secondary-color);
+            width: 100%; padding: 15px 15px 15px 45px; border: 1px solid #eee; border-radius: 8px; font-size: 1rem; outline: none;
         }
 
         .search-select {
-            padding: 0 20px;
-            border: none;
-            background: #f1f1f1;
-            border-radius: 8px;
-            font-family: inherit;
-            color: var(--text-dark);
-            cursor: pointer;
-            outline: none;
+            padding: 0 20px; border: none; background: #f1f1f1; border-radius: 8px; cursor: pointer;
         }
 
         .search-btn {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            border: none;
-            padding: 0 30px;
+            background-color: var(--secondary-color); color: var(--white); border: none; padding: 0 30px; border-radius: 8px; font-weight: 600; cursor: pointer;
+        }
+
+        /* --- Autocomplete --- */
+        .autocomplete-list {
+            position: absolute;
+            top: 100%;
+            left: 10px;
+            right: 10px;
+            background: white;
             border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            margin-top: 5px;
+            text-align: left;
+        }
+
+        .autocomplete-item {
+            padding: 10px 20px;
             cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .search-btn:hover {
-            background-color: #1aa179;
-        }
-
-        .search-tags {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .search-tags span {
-            color: var(--accent-color);
-            cursor: pointer;
-            margin: 0 5px;
-        }
-
-        .search-tags span:hover {
-            text-decoration: underline;
-        }
-
-        /* --- Main Content Area --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: var(--text-light);
-        }
-
-        /* --- Categories Grid --- */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .category-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--secondary-color);
-        }
-
-        .category-card i {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        .category-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        /* --- Articles/Info Grid --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .info-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .info-card:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .card-img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-tag {
-            background: #e3f2fd;
-            color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .card-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .card-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .read-more {
-            color: var(--primary-color);
-            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            color: var(--text-dark);
+            transition: background 0.2s;
             display: flex;
             align-items: center;
-            gap: 5px;
-            transition: var(--transition);
-        }
-
-        .read-more:hover {
-            color: var(--secondary-color);
             gap: 10px;
         }
 
-        /* --- Footer --- */
-        footer {
-            background-color: #1a1a1a;
-            color: #d1d1d1;
-            padding: 60px 20px 20px;
-        }
+        .autocomplete-item:hover { background-color: #e3f2fd; color: var(--primary-color); }
+        .autocomplete-item img { width: 25px; height: 17px; border-radius: 2px; object-fit: cover; }
 
-        .footer-content {
+        .search-tags { margin-top: 15px; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+        .search-tags span { color: var(--accent-color); cursor: pointer; margin: 0 5px; }
+
+        /* --- Loading --- */
+        .loader-container { display: none; justify-content: center; align-items: center; padding: 40px; margin-top: -50px; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--secondary-color); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- Result Card --- */
+        .country-result-container {
             max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            margin: -50px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+            display: none;
         }
 
-        .footer-col h4 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .social-icons {
+        .country-data-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            min-height: auto;
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            animation: slideUp 0.5s ease-out;
         }
 
-        .social-icons a {
-            width: 40px;
-            height: 40px;
-            background: #333;
-            border-radius: 50%;
+        .card-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 200px;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.15;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .card-content-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            width: 100%;
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: var(--white);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .country-flag-img {
+            width: 120px; height: 80px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .country-info { flex: 1; }
+        .country-info h2 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 5px; }
+        .country-info .region { text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; color: var(--secondary-color); font-weight: 600; margin-bottom: 15px; display: block; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        
+        .stat-item { 
+            display: flex; 
+            flex-direction: column; 
+            background: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 8px; 
+            border: 1px solid #eee;
             align-items: center;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover {
-            background: var(--secondary-color);
-            color: var(--white);
-        }
-
-        .copyright {
             text-align: center;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            font-size: 0.9rem;
         }
 
-        /* --- Responsive Tweaks --- */
+        /* Style for Coin Image */
+        .coin-img {
+            width: 35px; height: 35px; border-radius: 50%; margin-bottom: 5px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+        }
+
+        .stat-item i { font-size: 1.1rem; color: var(--secondary-color); margin-bottom: 5px; }
+        .stat-label { font-size: 0.7rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; }
+        .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); line-height: 1.2;}
+
+        /* --- Top City Section --- */
+        .top-city-section {
+            width: 100%; margin-top: 20px; padding: 20px; background: #eef2f5; border-radius: 12px;
+            display: flex; align-items: center; gap: 20px; flex-wrap: wrap; border: 1px solid #dbe4eb;
+        }
+        .city-info-text { flex: 1; min-width: 250px; }
+        .city-label { font-size: 0.8rem; font-weight: 700; color: var(--secondary-color); text-transform: uppercase; margin-bottom: 5px; }
+        .city-name { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 5px; }
+        .city-image-box { width: 150px; height: 100px; border-radius: 8px; overflow: hidden; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative; }
+        .city-image-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .city-image-box:hover img { transform: scale(1.1); }
+
+        /* --- Famous Section --- */
+        .famous-section { width: 100%; background-color: #e3f2fd; border-radius: 10px; padding: 15px; margin-top: 20px; }
+        .famous-title { font-size: 0.9rem; font-weight: 700; color: var(--primary-color); margin-bottom: 8px; display: block; }
+        .famous-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .famous-tag { background: var(--white); color: var(--primary-color); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; border: 1px solid #bbdefb; }
+
+        .error-box { background: #ffebee; color: #c62828; padding: 20px; border-radius: 10px; text-align: center; width: 100%; }
+
+        /* --- Content Sections --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 10px; }
+        
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .category-card { background: var(--white); padding: 30px; border-radius: 12px; text-align: center; box-shadow: var(--shadow); transition: var(--transition); cursor: pointer; }
+        .category-card:hover { transform: translateY(-10px); }
+        .category-card i { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 20px; }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .info-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .info-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .card-img { height: 200px; width: 100%; object-fit: cover; }
+        .card-content { padding: 25px; }
+        .card-tag { background: #e3f2fd; color: var(--primary-color); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 12px; }
+        .card-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .read-more { color: var(--primary-color); font-weight: 600; display: flex; align-items: center; gap: 5px; }
+
+        /* --- Footer & Facebook Section --- */
+        footer { background-color: #1a1a1a; color: #d1d1d1; padding: 60px 20px 20px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 20px; }
+        .footer-col a { color: var(--text-light); transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); }
+
+        /* Facebook Styling */
+        .facebook-box {
+            background: #1877F2;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+        }
+        .facebook-box:hover { transform: translateY(-3px); background: #1464cc; }
+        .facebook-box i { font-size: 1.5rem; }
+
+        .copyright { text-align: center; border-top: 1px solid #333; padding-top: 20px; font-size: 0.9rem; }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Simplified for demo */
+            .nav-links { display: none; }
             .search-container { flex-direction: column; }
-            .search-select { padding: 15px; text-align: left; }
-            .search-btn { width: 100%; padding: 15px; }
-        }
-
-        /* Utility for empty search result */
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 50px;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            display: none;
+            .top-city-section { flex-direction: column; text-align: center; }
+            .city-image-box { width: 100%; height: 150px; }
         }
     </style>
 </head>
@@ -428,14 +334,14 @@
     <header>
         <nav>
             <div class="logo">
-                <i class="fa-solid fa-earth-americas"></i> Weltinfo
+                <img src="https://cdn-icons-png.flaticon.com/512/10812/10812210.png" alt="Logo" class="logo-img">
+                <span>Weltinfo</span>
             </div>
             <div class="nav-links">
                 <a href="#">Home</a>
                 <a href="#explore">Explore</a>
                 <a href="#countries">Countries</a>
                 <a href="#blog">Blog</a>
-                <a href="#about">About</a>
             </div>
             <a href="#" class="cta-btn">Subscribe</a>
         </nav>
@@ -443,15 +349,16 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section with "Lamba" SEO Search -->
+        <!-- Hero Section -->
         <section class="hero">
-            <h1>Explore the World's Knowledge</h1>
-            <p>Access detailed data on geography, economics, history, and culture from every corner of the globe.</p>
+            <h1>Global Knowledge Hub</h1>
+            <p>President, Capital, Currency Images & Top Cities.</p>
             
             <div class="search-container">
                 <div class="search-input-wrapper">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="Try searching: 'Best time to visit Japan' or 'GDP of Germany 2026'...">
+                    <input type="text" id="searchInput" placeholder="Type country name (e.g., India, USA)...">
+                    <ul class="autocomplete-list" id="autocompleteList"></ul>
                 </div>
                 <select class="search-select" id="categorySelect">
                     <option value="all">All Categories</option>
@@ -460,242 +367,441 @@
                     <option value="history">History</option>
                     <option value="travel">Travel</option>
                 </select>
-                <button class="search-btn" onclick="filterContent()">Search</button>
+                <button class="search-btn" onclick="handleSearch()">Search</button>
             </div>
             
             <div class="search-tags">
-                Trending: 
-                <span onclick="setSearch('Global Warming Effects')">Global Warming Effects</span> • 
-                <span onclick="setSearch('Top Economies 2026')">Top Economies 2026</span> • 
-                <span onclick="setSearch('Ancient Rome History')">Ancient Rome History</span> • 
-                <span onclick="setSearch('Visa Free Countries')">Visa Free Countries</span>
+                Try: 
+                <span onclick="quickSearch('India')">India</span> • 
+                <span onclick="quickSearch('USA')">USA</span> • 
+                <span onclick="quickSearch('Japan')">Japan</span> • 
+                <span onclick="quickSearch('Brazil')">Brazil</span> • 
+                <span onclick="quickSearch('Nigeria')">Nigeria</span>
             </div>
         </section>
+
+        <!-- Loading Spinner -->
+        <div class="loader-container" id="loader">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Dynamic Country Result Section -->
+        <div class="country-result-container" id="countryResultContainer">
+            <!-- Content injected by JS -->
+        </div>
 
         <!-- Categories Section -->
         <section class="container" id="explore">
             <div class="section-title">
                 <h2>Browse by Category</h2>
-                <p>Find specific information tailored to your interests.</p>
             </div>
             <div class="categories-grid">
                 <div class="category-card" onclick="setCategoryFilter('geography')">
                     <i class="fa-solid fa-map-location-dot"></i>
                     <h3>Geography</h3>
-                    <p>Maps, climates, and physical features.</p>
                 </div>
                 <div class="category-card" onclick="setCategoryFilter('economy')">
                     <i class="fa-solid fa-chart-line"></i>
                     <h3>Economy</h3>
-                    <p>GDP, trade, and market statistics.</p>
                 </div>
                 <div class="category-card" onclick="setCategoryFilter('history')">
                     <i class="fa-solid fa-landmark"></i>
                     <h3>History</h3>
-                    <p>Events, leaders, and cultural heritage.</p>
                 </div>
                 <div class="category-card" onclick="setCategoryFilter('travel')">
                     <i class="fa-solid fa-plane-departure"></i>
                     <h3>Travel</h3>
-                    <p>Guides, tips, and hidden gems.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Latest Content (Searchable Grid) -->
+        <!-- Articles Section -->
         <section class="container" style="background-color: #f0f4f8; border-radius: 20px;" id="countries">
             <div class="section-title">
-                <h2>Latest World Insights</h2>
-                <p>Dive deep into our curated articles and statistics.</p>
+                <h2>Latest Insights</h2>
             </div>
-            
             <div class="info-grid" id="contentGrid">
-                
-                <!-- Card 1 -->
                 <article class="info-card" data-category="economy">
-                    <img src="https://picsum.photos/seed/finance/400/250" alt="Economy" class="card-img">
+                    <img src="https://picsum.photos/seed/finance/400/250" class="card-img">
                     <div class="card-content">
                         <span class="card-tag">Economy</span>
-                        <h3>Global Market Trends 2026: A Complete Analysis</h3>
-                        <p>An in-depth look at the emerging markets, inflation rates, and economic shifts across major continents.</p>
-                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                        <h3>Global Market Trends 2026</h3>
+                        <p>Analysis of emerging markets and economic shifts.</p>
                     </div>
                 </article>
-
-                <!-- Card 2 -->
                 <article class="info-card" data-category="travel">
-                    <img src="https://picsum.photos/seed/travel2/400/250" alt="Travel" class="card-img">
+                    <img src="https://picsum.photos/seed/travel2/400/250" class="card-img">
                     <div class="card-content">
                         <span class="card-tag">Travel</span>
-                        <h3>Top 10 Hidden Gems in Southeast Asia</h3>
-                        <p>Beyond the tourist traps, discover pristine beaches and ancient temples that offer tranquility.</p>
-                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                        <h3>Hidden Gems in Asia</h3>
+                        <p>Discover pristine beaches and ancient temples.</p>
                     </div>
                 </article>
-
-                <!-- Card 3 -->
                 <article class="info-card" data-category="geography">
-                    <img src="https://picsum.photos/seed/nature/400/250" alt="Geography" class="card-img">
+                    <img src="https://picsum.photos/seed/nature/400/250" class="card-img">
                     <div class="card-content">
                         <span class="card-tag">Geography</span>
-                        <h3>The Impact of Climate Change on Island Nations</h3>
-                        <p>How rising sea levels are reshaping the maps of the Maldives, Caribbean, and Pacific islands.</p>
-                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                        <h3>Climate Change Impact</h3>
+                        <p>Rising sea levels reshaping island nations.</p>
                     </div>
                 </article>
-
-                <!-- Card 4 -->
-                <article class="info-card" data-category="history">
-                    <img src="https://picsum.photos/seed/rome/400/250" alt="History" class="card-img">
-                    <div class="card-content">
-                        <span class="card-tag">History</span>
-                        <h3>The Rise and Fall of the Roman Empire</h3>
-                        <p>A comprehensive timeline of political strategies, wars, and cultural evolution in ancient Rome.</p>
-                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Card 5 -->
-                <article class="info-card" data-category="economy">
-                    <img src="https://picsum.photos/seed/tech/400/250" alt="Economy" class="card-img">
-                    <div class="card-content">
-                        <span class="card-tag">Economy</span>
-                        <h3>Cryptocurrency Regulations Around the World</h3>
-                        <p>A legal guide to how different governments are handling digital assets and blockchain technology.</p>
-                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                 <!-- Card 6 -->
-                 <article class="info-card" data-category="travel">
-                    <img src="https://picsum.photos/seed/snow/400/250" alt="Travel" class="card-img">
-                    <div class="card-content">
-                        <span class="card-tag">Travel</span>
-                        <h3>Winter Wonderland: Skiing in the Swiss Alps</h3>
-                        <p>Everything you need to know about resorts, pricing, and the best slopes for beginners.</p>
-                        <a href="#" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <div class="no-results" id="noResults">
-                    <i class="fa-regular fa-face-frown-open" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                    <p>No results found for your search. Try a different keyword.</p>
-                </div>
-
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer with Facebook Link -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 20px; color: var(--white);">
-                    <i class="fa-solid fa-earth-americas"></i> Weltinfo
+                    <span>Weltinfo</span>
                 </div>
-                <p>Your trusted source for global information. Making the world accessible, one search at a time.</p>
+                <p>Trusted global information source.</p>
             </div>
             <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="#">Geography</a></li>
-                    <li><a href="#">Economy</a></li>
-                    <li><a href="#">Culture</a></li>
-                    <li><a href="#">Travel Guides</a></li>
-                </ul>
+                <h4>Links</h4>
+                <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li></ul>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <!-- Facebook Link Section -->
+                <a href="https://www.facebook.com" target="_blank" class="facebook-box">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>Follow on Facebook</span>
+                </a>
+                <div style="margin-top: 10px;">
+                    <a href="https://www.twitter.com" target="_blank" style="margin-right: 15px;"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 Weltinfo. All Rights Reserved.
-        </div>
+        <div class="copyright">&copy; 2026 Weltinfo. All Rights Reserved.</div>
     </footer>
 
-    <!-- JavaScript for Search Functionality -->
+    <!-- JavaScript -->
     <script>
-        // Function to filter content based on search and category
-        function filterContent() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const category = document.getElementById('categorySelect').value.toLowerCase();
-            const grid = document.getElementById('contentGrid');
-            const cards = grid.getElementsByClassName('info-card');
-            const noResults = document.getElementById('noResults');
-            let hasResults = false;
+        // --- 1. President Database (Expanded for 50+ Major Countries) ---
+        const presidentDB = {
+            'afghanistan': 'Hibatullah Akhundzada',
+            'albania': 'Bajram Begaj',
+            'algeria': 'Abdelmadjid Tebboune',
+            'argentina': 'Javier Milei',
+            'australia': 'David Hurley (Governor General)',
+            'bangladesh': 'Mohammed Shahabuddin',
+            'belgium': 'Philippe',
+            'brazil': 'Luiz Inácio Lula da Silva',
+            'canada': 'Mary Simon (Governor General)',
+            'chile': 'Gabriel Boric',
+            'china': 'Xi Jinping',
+            'colombia': 'Gustavo Petro',
+            'denmark': 'Margrethe II (Queen)',
+            'egypt': 'Abdel Fattah el-Sisi',
+            'finland': 'Alexander Stubb',
+            'france': 'Emmanuel Macron',
+            'germany': 'Frank-Walter Steinmeier',
+            'greece': 'Katerina Sakellaropoulou',
+            'hungary': 'Tamás Sulyok',
+            'india': 'Droupadi Murmu',
+            'indonesia': 'Joko Widodo',
+            'iran': 'Ebrahim Raisi',
+            'iraq': 'Abdul Latif Rashid',
+            'ireland': 'Michael D. Higgins',
+            'israel': 'Isaac Herzog',
+            'italy': 'Sergio Mattarella',
+            'japan': 'Naruhito (Emperor)',
+            'kenya': 'William Ruto',
+            'malaysia': 'Ibrahim Iskandar',
+            'mexico': 'Andrés Manuel López Obrador',
+            'netherlands': 'Willem-Alexander',
+            'new zealand': 'Dame Cindy Kiro',
+            'nigeria': 'Bola Tinubu',
+            'north korea': 'Kim Jong Un',
+            'norway': 'Harald V',
+            'pakistan': 'Arif Alvi',
+            'peru': 'Dina Boluarte',
+            'philippines': 'Ferdinand Marcos Jr.',
+            'poland': 'Andrzej Duda',
+            'portugal': 'Marcelo Rebelo de Sousa',
+            'russia': 'Vladimir Putin',
+            'saudi arabia': 'Salman bin Abdulaziz Al Saud',
+            'south africa': 'Cyril Ramaphosa',
+            'south korea': 'Yoon Suk-yeol',
+            'spain': 'Felipe VI',
+            'sweden': 'Carl XVI Gustaf',
+            'switzerland': 'Viola Amherd',
+            'turkey': 'Recep Tayyip Erdoğan',
+            'ukraine': 'Volodymyr Zelenskyy',
+            'united arab emirates': 'Mohamed bin Zayed Al Nahyan',
+            'united kingdom': 'King Charles III',
+            'uk': 'King Charles III',
+            'united states': 'Joe Biden',
+            'usa': 'Joe Biden',
+            'vietnam': 'Võ Văn Thưởng',
+            'zimbabwe': 'Emmerson Mnangagwa'
+        };
 
-            for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                const title = card.querySelector('h3').innerText.toLowerCase();
-                const text = card.querySelector('p').innerText.toLowerCase();
-                const cardCategory = card.getAttribute('data-category').toLowerCase();
+        // --- 2. City Image Database ---
+        const cityImageDB = {
+            'new delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=500&q=80',
+            'delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=500&q=80',
+            'mumbai': 'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&w=500&q=80',
+            'new york': 'https://images.unsplash.com/photo-1496442226666-8d4a0e62e6e9?auto=format&fit=crop&w=500&q=80',
+            'new york city': 'https://images.unsplash.com/photo-1496442226666-8d4a0e62e6e9?auto=format&fit=crop&w=500&q=80',
+            'washington, d.c.': 'https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&w=500&q=80',
+            'tokyo': 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=500&q=80',
+            'sydney': 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=500&q=80',
+            'berlin': 'https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=500&q=80',
+            'paris': 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=500&q=80',
+            'london': 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=500&q=80',
+            'beijing': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=500&q=80',
+            'moscow': 'https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=500&q=80',
+            'rio de janeiro': 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=500&q=80',
+            'dubai': 'https://images.unsplash.com/photo-1512453979798-5ea904ac6626?auto=format&fit=crop&w=500&q=80',
+            'lagos': 'https://images.unsplash.com/photo-1567540697270-f0a2191d0c29?auto=format&fit=crop&w=500&q=80',
+            'cairo': 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=500&q=80',
+            'nairobi': 'https://images.unsplash.com/photo-1588606139533-5c4353486c14?auto=format&fit=crop&w=500&q=80',
+            'johannesburg': 'https://images.unsplash.com/photo-1588668214407-6ea960942e13?auto=format&fit=crop&w=500&q=80'
+        };
 
-                // Check if card matches text search AND category selection
-                const matchesText = title.includes(input) || text.includes(input);
-                const matchesCategory = category === 'all' || cardCategory === category;
+        // --- 3. Famous & Top City Logic ---
+        const famousDB = {
+            'india': { topCity: 'New Delhi (Capital)', famous: 'Taj Mahal, Spicy Cuisine, Bollywood', cityImgKey: 'new delhi' },
+            'united states': { topCity: 'New York City', famous: 'Hollywood, Silicon Valley, NASA', cityImgKey: 'new york' },
+            'usa': { topCity: 'New York City', famous: 'Hollywood, Silicon Valley, NASA', cityImgKey: 'new york' },
+            'japan': { topCity: 'Tokyo', famous: 'Anime, Technology, Sushi', cityImgKey: 'tokyo' },
+            'australia': { topCity: 'Sydney', famous: 'Opera House, Kangaroos', cityImgKey: 'sydney' },
+            'brazil': { topCity: 'Rio de Janeiro', famous: 'Football, Carnival', cityImgKey: 'rio de janeiro' },
+            'france': { topCity: 'Paris', famous: 'Eiffel Tower, Fashion', cityImgKey: 'paris' },
+            'germany': { topCity: 'Berlin', famous: 'Cars, Beer, History', cityImgKey: 'berlin' },
+            'uk': { topCity: 'London', famous: 'Big Ben, Royal Family', cityImgKey: 'london' },
+            'russia': { topCity: 'Moscow', famous: 'Red Square, Vodka', cityImgKey: 'moscow' },
+            'united arab emirates': { topCity: 'Dubai', famous: 'Burj Khalifa, Luxury', cityImgKey: 'dubai' },
+            'china': { topCity: 'Beijing', famous: 'Great Wall, Tech', cityImgKey: 'beijing' },
+            'nigeria': { topCity: 'Lagos', famous: 'Oil, Afrobeat, Nollywood', cityImgKey: 'lagos' },
+            'egypt': { topCity: 'Cairo', famous: 'Pyramids, Nile River', cityImgKey: 'cairo' },
+            'south africa': { topCity: 'Johannesburg', famous: 'Safari, Gold Mines', cityImgKey: 'johannesburg' }
+        };
 
-                if (matchesText && matchesCategory) {
-                    card.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    card.style.display = 'none';
+        const fallbackDB = {
+            'india': { name: 'India', capital: 'New Delhi', region: 'Asia', population: 1380004385, flag: 'https://flagcdn.com/w320/in.png', currencies: { 'INR': { name: 'Indian rupee', symbol: '₹' } } },
+            'united states': { name: 'United States', capital: 'Washington, D.C.', region: 'Americas', population: 331002651, flag: 'https://flagcdn.com/w320/us.png', currencies: { 'USD': { name: 'United States dollar', symbol: '$' } } },
+            'japan': { name: 'Japan', capital: 'Tokyo', region: 'Asia', population: 126476461, flag: 'https://flagcdn.com/w320/jp.png', currencies: { 'JPY': { name: 'Japanese yen', symbol: '¥' } } }
+        };
+
+        let allCountries = [];
+
+        // --- 4. Autocomplete ---
+        async function initCountries() {
+            try {
+                const res = await fetch('https://restcountries.com/v3.1/all?fields=name,flags');
+                const data = await res.json();
+                allCountries = data;
+            } catch (e) { console.log("Autoload failed"); }
+        }
+        initCountries();
+
+        const searchInput = document.getElementById('searchInput');
+        const autocompleteList = document.getElementById('autocompleteList');
+
+        searchInput.addEventListener('input', function() {
+            const val = this.value.toLowerCase();
+            autocompleteList.innerHTML = '';
+            if (!val) { autocompleteList.style.display = 'none'; return; }
+            const matches = allCountries.filter(c => c.name.common.toLowerCase().startsWith(val));
+            
+            if (matches.length > 0) {
+                autocompleteList.style.display = 'block';
+                matches.forEach(country => {
+                    const li = document.createElement('li');
+                    li.className = 'autocomplete-item';
+                    li.innerHTML = `<img src="${country.flags.png}" alt="flag"> ${country.name.common}`;
+                    li.onclick = () => {
+                        searchInput.value = country.name.common;
+                        autocompleteList.style.display = 'none';
+                        handleSearch();
+                    };
+                    autocompleteList.appendChild(li);
+                });
+            } else { autocompleteList.style.display = 'none'; }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (e.target !== searchInput) autocompleteList.style.display = 'none';
+        });
+
+        // --- 5. Main Search ---
+        async function handleSearch() {
+            const input = searchInput.value.trim();
+            if(!input) return;
+            fetchCountryData(input);
+            filterContent();
+            setTimeout(() => { document.getElementById('countries').scrollIntoView({behavior: 'smooth'}); }, 500);
+        }
+
+        // --- 6. Fetch & Render with All Updates ---
+        async function fetchCountryData(name) {
+            const container = document.getElementById('countryResultContainer');
+            const loader = document.getElementById('loader');
+            container.style.display = 'none';
+            loader.style.display = 'flex';
+
+            try {
+                await new Promise(r => setTimeout(r, 600));
+                const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
+                let country = null;
+
+                if (response.ok) {
+                    const data = await response.json();
+                    country = data.find(c => c.name.common.toLowerCase() === name.toLowerCase());
+                    if (!country) country = data.find(c => c.name.common.toLowerCase().includes(name.toLowerCase()));
+                    if (name.toLowerCase() === 'india' && country && country.name.common !== 'India') {
+                        const exactIndia = data.find(c => c.name.common === 'India');
+                        if (exactIndia) country = exactIndia;
+                    }
+                } else { throw new Error('API Error'); }
+
+                if (!country) {
+                    const fallbackKey = Object.keys(fallbackDB).find(k => name.toLowerCase().includes(k));
+                    if (fallbackKey) {
+                        country = fallbackDB[fallbackKey];
+                        country.flags = { png: country.flag, svg: country.flag }; 
+                        country.currencies = country.currencies || { 'USD': { name: 'Unknown', symbol: '' } };
+                    } else { throw new Error('Country not found'); }
+                }
+
+                renderCountryCard(country);
+
+            } catch (error) {
+                container.innerHTML = `<div class="error-box">Could not find data for "<strong>${name}</strong>".</div>`;
+                container.style.display = 'block';
+            } finally { loader.style.display = 'none'; }
+        }
+
+        function renderCountryCard(country) {
+            const container = document.getElementById('countryResultContainer');
+            
+            const countryName = country.name?.common || country.name;
+            const flag = country.flags?.png || 'https://via.placeholder.com/150';
+            const capital = (country.capital && country.capital.length > 0) ? country.capital[0] : 'N/A';
+            const region = country.region || 'Unknown';
+            const population = country.population ? country.population.toLocaleString() : '0';
+
+            let currencyName = 'N/A'; let currencySymbol = '?';
+            if (country.currencies) {
+                const keys = Object.keys(country.currencies);
+                if (keys.length > 0) {
+                    currencyName = country.currencies[keys[0]].name || 'N/A';
+                    currencySymbol = country.currencies[keys[0]].symbol || keys[0].substring(0,1);
                 }
             }
 
-            // Show/Hide "No Results" message
-            if (!hasResults) {
-                noResults.style.display = 'block';
+            // --- GENERATE MONEY IMAGE (COIN) ---
+            // Using a placeholder service to create a gold coin with currency symbol
+            const moneyImage = `https://placehold.co/100x100/FFD700/FFFFFF?text=${currencySymbol}`;
+
+            // President Logic
+            const leaderName = presidentDB[countryName.toLowerCase()] || 'Data Not Available';
+
+            // Famous & Top City Logic with Fallback
+            let extraData = famousDB[countryName.toLowerCase()];
+            let displayTopCity;
+            let displayFamous;
+            let cityImgURL;
+
+            if (extraData) {
+                displayTopCity = extraData.topCity.includes('Capital') ? capital : extraData.topCity;
+                displayFamous = extraData.famous.split(',').map(t => t.trim());
+                cityImgURL = extraData.cityImgKey && cityImageDB[extraData.cityImgKey] ? cityImageDB[extraData.cityImgKey] : `https://picsum.photos/seed/${displayTopCity.replace(/\s/g, '')}/300/200`;
             } else {
-                noResults.style.display = 'none';
+                displayTopCity = capital;
+                displayFamous = [`${region} Culture`, `History & Tradition`, `Unique Cuisine`];
+                cityImgURL = `https://picsum.photos/seed/${displayTopCity.replace(/\s/g, '')}/300/200`;
+            }
+
+            let famousTagsHTML = '';
+            displayFamous.forEach(tag => { famousTagsHTML += `<span class="famous-tag"><i class="fa-solid fa-star"></i> ${tag}</span>`; });
+
+            // Background Image
+            const bgImage = `https://picsum.photos/seed/${countryName}/800/400`;
+
+            const html = `
+                <div class="country-data-card">
+                    <img src="${bgImage}" class="card-bg-img" alt="Background">
+                    <div class="card-content-wrapper">
+                        <img src="${flag}" alt="Flag" class="country-flag-img">
+                        <div class="country-info">
+                            <h2>${countryName}</h2>
+                            <span class="region">${region}</span>
+                            
+                            <div class="stats-grid">
+                                <!-- President/Leader -->
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                    <span class="stat-label">President</span>
+                                    <span class="stat-value">${leaderName}</span>
+                                </div>
+                                
+                                <!-- Capital (Good Design) -->
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-landmark-dome"></i>
+                                    <span class="stat-label">Capital</span>
+                                    <span class="stat-value">${capital}</span>
+                                </div>
+                                
+                                <!-- Currency with Money Image -->
+                                <div class="stat-item">
+                                    <img src="${moneyImage}" class="coin-img" alt="Money">
+                                    <span class="stat-label">Currency</span>
+                                    <span class="stat-value">${currencyName}</span>
+                                </div>
+
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-users"></i>
+                                    <span class="stat-label">Population</span>
+                                    <span class="stat-value">${population}</span>
+                                </div>
+                            </div>
+
+                            <!-- Top City Visual -->
+                            <div class="top-city-section">
+                                <div class="city-info-text">
+                                    <div class="city-label"><i class="fa-solid fa-map-pin"></i> Top City</div>
+                                    <div class="city-name">${displayTopCity}</div>
+                                </div>
+                                <div class="city-image-box">
+                                    <img src="${cityImgURL}" alt="${displayTopCity} Image">
+                                </div>
+                            </div>
+
+                            <!-- Famous For -->
+                            <div class="famous-section">
+                                <span class="famous-title"><i class="fa-solid fa-bolt"></i> Famous For:</span>
+                                <div class="famous-tags">${famousTagsHTML}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML = html;
+            container.style.display = 'block';
+        }
+
+        function quickSearch(term) { searchInput.value = term; handleSearch(); }
+        function filterContent() {
+            const input = searchInput.value.toLowerCase();
+            const cards = document.getElementsByClassName('info-card');
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].querySelector('h3').innerText.toLowerCase();
+                cards[i].style.display = title.includes(input) ? 'block' : 'none';
             }
         }
-
-        // Helper: Set search input from trending tags and trigger search
-        function setSearch(term) {
-            const input = document.getElementById('searchInput');
-            input.value = term;
-            filterContent();
-            
-            // Scroll to results
-            document.getElementById('countries').scrollIntoView({behavior: 'smooth'});
-        }
-
-        // Helper: Set category filter from category cards
         function setCategoryFilter(cat) {
             const select = document.getElementById('categorySelect');
             select.value = cat;
             filterContent();
-            
-            // Scroll to results
-            document.getElementById('countries').scrollIntoView({behavior: 'smooth'});
         }
-
-        // Add "Enter" key listener for search box
-        document.getElementById('searchInput').addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                filterContent();
-                document.getElementById('countries').scrollIntoView({behavior: 'smooth'});
-            }
-        });
-
-        // Trigger filter when category dropdown changes
-        document.getElementById('categorySelect').addEventListener('change', filterContent);
-
+        searchInput.addEventListener('keyup', function(event) { if (event.key === 'Enter') handleSearch(); });
     </script>
 </body>
 </html>
